@@ -30,10 +30,12 @@ public class Mover : MonoBehaviour
     {
         if (direction == Vector3.zero)
             transform.rotation = _currentRotation;
-
-        Quaternion lookDirection = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookDirection, _speedRotation * Time.deltaTime);
-        _currentRotation = transform.rotation;
+        else
+        {
+            Quaternion lookDirection = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookDirection, _speedRotation * Time.deltaTime);
+            _currentRotation = transform.rotation;
+        }
     }
 
     private Vector3 GetMovementDirection()
