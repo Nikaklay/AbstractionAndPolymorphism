@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
+    [SerializeField] protected ParticleSystem _visualEffectPrefab;
+
+    private Vector3 SwingPositionOffset = Vector3.up * 0.25f;
     private int SwingSpeed = 2;
     private int Smoothing = 10;
 
@@ -13,12 +16,16 @@ public abstract class Item : MonoBehaviour
 
     public virtual void Use()
     {
+        ParticleSystem visualEffect = Instantiate(_visualEffectPrefab, transform.position + Vector3.up, Quaternion.identity);
+
+        visualEffect.Play();
+
         Destroy(gameObject);
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _startPosition = transform.position;
+        _startPosition = transform.position + SwingPositionOffset;
     }
 
     private void Update()

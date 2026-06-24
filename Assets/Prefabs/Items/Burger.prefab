@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3085bfcd671b24711a4165127c62eb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _visualEffectPrefab: {fileID: 8037888020262890171, guid: 06469dc3e3eba49cb99340233315d1bf,
+    type: 3}
 --- !u!135 &4600662044046307914
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

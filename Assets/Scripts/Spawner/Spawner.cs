@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     {
         foreach (SpawnPoint spawnPoint in _spawnPoints)
         {
-            Vector3 spawnPosition = spawnPoint.transform.position;
             Item randomItem = _itemPrefabs[Random.Range(0, _itemPrefabs.Count)];
+            Vector3 spawnPosition = spawnPoint.transform.position;
 
             Instantiate(randomItem, spawnPosition, Quaternion.identity);
         }

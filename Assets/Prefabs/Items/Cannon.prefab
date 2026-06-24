@@ -132,7 +132,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -150,3 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e7e1cfd20ba42d1b91bb51ad0f1439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _visualEffectPrefab: {fileID: 1698174986119262765, guid: a520a8c958851404caa195accb128a54,
+    type: 3}
+  _cannonBall: {fileID: -2803928040807889711, guid: c38e482ec7bc94b8f8fbd9856a21a756,
+    type: 3}

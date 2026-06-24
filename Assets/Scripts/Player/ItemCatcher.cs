@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Mover), typeof(Health))]
 public class ItemCatcher : MonoBehaviour
 {
-    [SerializeField] private float _magnitOffset;
+    [SerializeField] private PlayerInput _playerInput;
 
     private Item _currentItem;
 
@@ -15,21 +16,23 @@ public class ItemCatcher : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (_playerInput.IsUseKeyPressed())
         {
             if (_currentItem != null)
             {
                 _currentItem.Use();
+
+                _currentItem = null;
                 _canTakeItem = true;
             }
             else
-                Debug.Log("Nothing to use");
+                Debug.Log("Использовать нечего, персонаж без предмета");
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider other)
     {
-        Item item = hit.gameObject.GetComponent<Item>();
+        Item item = other.gameObject.GetComponent<Item>();
 
         if (item != null && _canTakeItem)
         {
@@ -37,9 +40,9 @@ public class ItemCatcher : MonoBehaviour
 
             item.SetCollected();
 
-            item.transform.position = hit.point + hit.normal * _magnitOffset;
             item.transform.SetParent(transform);
-
+            item.transform.SetLocalPositionAndRotation(Vector3.forward, Quaternion.identity);
+            
             _canTakeItem = false;
         }
     }
