@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class EnergyBottle : Item
 {
-    public override void Use()
+    public override void Use(GameObject player)
     {
-        Mover player = GetComponentInParent<Mover>();
+        Mover mover = player.GetComponent<Mover>();
         
-        if (player != null)
-            player.BoostSpeed();
+        if (mover != null)
+            mover.BoostSpeed();
 
-        base.Use();
+        base.Use(player);
     }
 }

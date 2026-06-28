@@ -14,7 +14,7 @@ public abstract class Item : MonoBehaviour
 
     public void SetCollected() => _isCollected = true;
 
-    public virtual void Use()
+    public virtual void Use(GameObject player)
     {
         ParticleSystem visualEffect = Instantiate(_visualEffectPrefab, transform.position + Vector3.up, Quaternion.identity);
 

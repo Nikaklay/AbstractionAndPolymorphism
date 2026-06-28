@@ -20,7 +20,7 @@ public class ItemCatcher : MonoBehaviour
         {
             if (_currentItem != null)
             {
-                _currentItem.Use();
+                _currentItem.Use(gameObject);
 
                 _currentItem = null;
                 _canTakeItem = true;

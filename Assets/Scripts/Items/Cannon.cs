@@ -4,19 +4,19 @@ public class Cannon : Item
 {
     [SerializeField] private CannonBall _cannonBall;
 
-    public override void Use()
+    public override void Use(GameObject player)
     {
-        Mover player = GetComponentInParent<Mover>();
+        Mover mover = player.GetComponent<Mover>();
 
-        if (player != null)
+        if (mover != null)
         {
             CannonBall ball = Instantiate(_cannonBall, transform.position, Quaternion.identity);
 
-            Vector3 direction = player.LookDirection;
+            Vector3 direction = mover.LookDirection;
 
             ball.Shoot(direction);
         }
 
-        base.Use();
+        base.Use(player);
     }
 }
